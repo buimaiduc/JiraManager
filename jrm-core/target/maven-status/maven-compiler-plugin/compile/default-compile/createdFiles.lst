@@ -1,0 +1,11 @@
+com\jrm\core\Main.class
+com\jrm\core\common\GenericDAO.class
+com\jrm\core\domain\Note.class
+com\jrm\core\dao\StoryDAO.class
+com\jrm\core\domain\Project.class
+com\jrm\core\common\AbstractGenericDAO.class
+com\jrm\core\dao\impl\StoryDAOImpl.class
+com\jrm\core\domain\App.class
+com\jrm\core\service\StoryService.class
+com\jrm\core\service\impl\StoryServiceImpl.class
+com\jrm\core\domain\Story.class
