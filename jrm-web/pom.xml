@@ -1,64 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>jiramanager</artifactId>
-        <groupId>com.bmduc</groupId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>jiramanager</artifactId>
+		<groupId>com.bmduc</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
 
-    <artifactId>jrm-web</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+	<artifactId>jrm-web</artifactId>
 	<packaging>war</packaging>
 	<name>JRM-Web</name>
 	<url>http://maven.apache.org</url>
 
-    <properties>
-        <flexjson.version>3.3</flexjson.version>
-        <apache.tomcat.embedded.version>9.0.0.M9</apache.tomcat.embedded.version>
-        <jrmcore.version>0.0.1-SNAPSHOT</jrmcore.version>
-    </properties>
+	<properties>
+		<jrmcore.version>0.0.1-SNAPSHOT</jrmcore.version>
+		<flexjson.version>3.3</flexjson.version>
+		<apache.tomcat.embedded.version>9.0.0.M9</apache.tomcat.embedded.version>
+		<tiles.version>3.0.5</tiles.version>
+		<ckeditor.version>3.5.3</ckeditor.version>
+		<servletapi.version>4.0.0-b01</servletapi.version>
+		<jstl.version>1.2</jstl.version>
+	</properties>
 
-    <dependencies>
-        <!-- Get JRM-Core dependecy -->
-        <dependency>
-            <groupId>com.bmduc</groupId>
-            <artifactId>jrm-core</artifactId>
-            <version>${jrmcore.version}</version>
-        </dependency>
+	<dependencies>
+		<!-- Get JRM-Core dependecy -->
+		<dependency>
+			<groupId>com.bmduc</groupId>
+			<artifactId>jrm-core</artifactId>
+			<version>${jrmcore.version}</version>
+		</dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 
-        <!-- https://mvnrepository.com/artifact/net.sf.flexjson/flexjson -->
-        <dependency>
-            <groupId>net.sf.flexjson</groupId>
-            <artifactId>flexjson</artifactId>
-            <version>${flexjson.version}</version>
-        </dependency>
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servletapi.version}</version>
+			<scope>provided</scope>
+		</dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core -->
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-core</artifactId>
-            <version>${apache.tomcat.embedded.version}</version>
-        </dependency>
-    </dependencies>
-    
-    <build>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/net.sf.flexjson/flexjson -->
+		<dependency>
+			<groupId>net.sf.flexjson</groupId>
+			<artifactId>flexjson</artifactId>
+			<version>${flexjson.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-core -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+			<version>${apache.tomcat.embedded.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Apache Tiles -->
+		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-core -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-core</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-jsp -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-jsp</artifactId>
+			<version>${tiles.version}</version>
+		</dependency>
+
+		<!-- CKEditor -->
+		<dependency>
+			<groupId>com.ckeditor</groupId>
+			<artifactId>ckeditor-java-core</artifactId>
+			<version>${ckeditor.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
 		<finalName>${project.artifactId}-${project.version}</finalName>
 		<plugins>
 			<plugin>

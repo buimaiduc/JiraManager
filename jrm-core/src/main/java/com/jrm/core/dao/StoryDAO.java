@@ -1,5 +1,7 @@
 package com.jrm.core.dao;
 
+import java.util.List;
+
 import com.jrm.core.common.GenericDAO;
 import com.jrm.core.domain.Story;
 
@@ -13,5 +15,5 @@ import com.jrm.core.domain.Story;
  * @author DucB<br/>
  */
 public interface StoryDAO extends GenericDAO<Story> {
-
+	public List<Story> getBySummary(String summary);
 }

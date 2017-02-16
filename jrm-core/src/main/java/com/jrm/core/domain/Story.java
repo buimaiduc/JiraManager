@@ -1,8 +1,26 @@
 package com.jrm.core.domain;
 
-import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * ####################################################<br/>
@@ -21,7 +39,12 @@ public class Story implements Serializable {
     private String description;
     private Set<Project> projects;
     private Set<Note> notes;
+    private Set<Tag> tags;
     private String link;
+    private String storyNumber;
+    private Date creationDate;
+    private Date updatedDate;
+    private List<String> attachments;
 
     @Id
     @Column(name = "ID")
@@ -35,25 +58,61 @@ public class Story implements Serializable {
         return summary;
     }
 
+    @Lob
     @Column(name = "DESCRIPTION")
     public String getDescription() {
         return description;
     }
 
     @OneToMany(mappedBy = "story", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @ManyToOne
+//    @JoinColumn(name = "STORY_ID")
     public Set<Project> getProjects() {
         return projects;
     }
 
     @OneToMany(mappedBy = "story", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @ManyToOne
+//    @JoinColumn(name = "STORY_ID")
     public Set<Note> getNotes() {
         return notes;
+    }
+    
+    @ManyToMany
+    @JoinTable(name = "story_to_tag",
+    joinColumns = {@JoinColumn(name = "STORY_ID")},
+    inverseJoinColumns = {@JoinColumn(name = "TAG_ID")})
+    public Set<Tag> getTags() {
+    	return tags;
     }
 
     @Column(name = "LINK")
     public String getLink() {
         return link;
     }
+    
+    @Column(name = "STORY_NUMBER")
+    public String getStoryNumber() {
+		return storyNumber;
+	}
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "CREATION_DATE")
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "UPDATED_DATE")
+	public Date getUpdatedDate() {
+		return updatedDate;
+	}
+
+    @ElementCollection
+    @Column(name = "ATTACHMENTS")
+	public List<String> getAttachments() {
+		return attachments;
+	}
 
     public void setId(Long id) {
         this.id = id;
@@ -74,8 +133,28 @@ public class Story implements Serializable {
     public void setNotes(Set<Note> notes) {
         this.notes = notes;
     }
+    
+    public void setTags(Set<Tag> tags) {
+    	this.tags = tags;
+    }
 
     public void setLink(String link) {
         this.link = link;
     }
+
+	public void setStoryNumber(String storyNumber) {
+		this.storyNumber = storyNumber;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public void setUpdatedDate(Date updatedDate) {
+		this.updatedDate = updatedDate;
+	}
+
+	public void setAttachments(List<String> attachments) {
+		this.attachments = attachments;
+	}
 }

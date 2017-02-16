@@ -1,14 +1,14 @@
 package com.jrm.core.service.impl;
 
-import com.jrm.core.dao.StoryDAO;
-import com.jrm.core.domain.Story;
-import com.jrm.core.service.StoryService;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import com.jrm.core.dao.StoryDAO;
+import com.jrm.core.domain.Story;
+import com.jrm.core.service.StoryService;
 
 /**
  * ####################################################<br/>
@@ -42,4 +42,9 @@ public class StoryServiceImpl implements StoryService {
     public boolean delete(Story story) {
         return storyDAO.delete(story);
     }
+
+	@Override
+	public List<Story> getBySummary(String summary) {
+		return storyDAO.getBySummary(summary);
+	}
 }

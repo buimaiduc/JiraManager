@@ -1,8 +1,12 @@
 package com.jrm.core;
 
+import java.util.Date;
+
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import com.jrm.core.dao.StoryDAO;
+import com.jrm.core.domain.Story;
+import com.jrm.core.service.StoryService;
 
 /**
  * ####################################################<br/>
@@ -20,7 +24,15 @@ public class Main {
         ctx.load("classpath:spring/app-context.xml");
         ctx.refresh();
 
-        StoryDAO storyDAO = ctx.getBean("storyDAO", StoryDAO.class);
-        System.out.println(storyDAO.getAll().size());
+        StoryService storyService = ctx.getBean("storyService", StoryService.class);
+        Story story = new Story();
+        story.setSummary("DSA-10");
+        story.setDescription("DSA-10");
+        story.setLink("DSA-10");
+        story.setStoryNumber("DSA-10");
+        story.setCreationDate(new Date());
+        story.setUpdatedDate(new Date());
+        storyService.save(story);
+        
     }
 }

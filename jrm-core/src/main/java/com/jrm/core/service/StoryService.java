@@ -18,4 +18,5 @@ public interface StoryService {
     public Story getById(Long id);
     public Story save(Story story);
     public boolean delete(Story story);
+    public List<Story> getBySummary(String summary);
 }

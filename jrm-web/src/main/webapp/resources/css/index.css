@@ -1,0 +1,187 @@
+/*!
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+#exampleInputEmail1 {
+	width: 90%;
+	display: inline-block;
+}
+#qask {
+	display: inline-block;
+	float: right;
+}
+.logo {
+	width: 350px !important;
+}
+.menu {
+	display:inline-block;
+	top: 15px;
+	padding-left: 34px;
+}
+.container, .container-fluid {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.row {
+	display: inline-block;
+}
+.body {
+	margin-top: 30px;
+}
+.qstatus {
+	text-align: center;
+	float:left;
+}
+
+.story-item {
+	display: inline-block;
+	border-bottom: 1px solid #eaebec;
+}
+.tags-border {
+	border: 1px solid #c8ccd0;
+	display: none;
+}
+.qstitem {
+	display: block;
+	width: 75px;
+	height: 40px;
+	text-align: center;
+}
+.qstanswer {
+	color: #FFF;
+	background-color: #75845C;
+	height: 60px;
+	margin-bottom: 20px;
+}
+.qstanswer > h5 {
+	padding-top: 20px;
+}
+.qtags {
+	display: inline-block;
+	margin-right: 3px;
+	padding: 2px;
+	background-color: #E1ECF4;
+	color: #39739d;
+	font-size: 13px;
+}
+.quserimg {
+	width: 40px;
+}
+.quser {
+	float: right;
+	display: inline-block;
+}
+.width100 {
+	width: 100%;
+}
+.height100 {
+	height: 100%;
+}
+.vcenter {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+}
+.img {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.template {
+	width: 80%;
+	align-items: center;
+}
+h5 .row {
+	position: relative;
+}
+#tagName {
+	position: absolute;
+	top: -10px;
+}
+.tag-cell {
+	width: 33%;
+	border-bottom: 1px dotted #E0E0E0;
+	padding-bottom: 12px;
+	padding-right: 6px;
+	padding-top: 6px;
+	vertical-align: top;
+	display:inline-block;
+}
+.subheader {
+	border-bottom: 1px solid #eaebec;
+}
+.subheader-child {
+	margin-bottom: 5px;
+	display: inline-block;
+}
+.qtags_content {
+	font-size: 14px;
+	height: 55px;
+	line-height: 14px;
+	margin-bottom: 4px;
+	overflow: hidden;
+}
+.tags-search {
+	margin-top: -20px;
+	margin: 10px;
+}
+.chosen-tag:hover {
+	cursor: pointer;
+	background: #fec210;
+}
+.delete-tag {
+	width: 14px;
+	height: 16px;
+	vertical-align: middle;
+	display: inline-block;
+	background-position: -56px -321px;
+	cursor: pointer;
+	margin-left: 3px;
+	margin-top: -2px;
+	margin-bottom: -1px;
+	background-image: url("../imgs/delete-tag.png");
+}
+.post-tag {
+	color: #33658a;
+	background-color: #cee0ed;
+	border-color: rgba(0,0,0,0);
+	padding: 8px;
+	margin: 3px;
+	display: inline-block;
+}
+#chosen-tag-list {
+	margin-bottom:20px;
+	display: block; 
+}
+.form-group {
+	margin-top: 15px;
+}
+
+
+
+
+.jr-img {
+	width: 120px;
+	height: 50px;
+	margin: 0;
+}
+.mg-8x {
+	margin: 8px;
+	border-radius: 6px 0px 0px 6px;
+}
+.search-btn {
+	padding: 6px;
+	font-size: 15px;
+	font-weight: bold;
+	border-radius: 0px 6px 6px 0px;
+	color: #000066;
+}
+.search-btn-div {
+	margin-top: 17px;
+	margin-left: -22px;
+}
+.search-txt {
+	padding-top: 9px;
+	padding-left: 0px;
+}
