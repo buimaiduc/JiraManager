@@ -34,6 +34,7 @@
 			value="org.springframework.web.servlet.view.tiles3.TilesView" />
 		<property name="order" value="-1" />
 	</bean>
+
 	<bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions">
@@ -42,6 +43,17 @@
 			</list>
 		</property>
 	</bean>
+
+	<!-- i18n -->
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/WEB-INF/messages/messages" />
+		<property name="useCodeAsDefaultMessage" value="true" />
+	</bean>
+	<bean id="localResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver"></bean>
+	<bean id="localeChangeIntercepter" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<property name="paramName" value="lang" />
+	</bean>
+
 
 	<mvc:resources mapping="/resources/**" location="/resources/"
 		cache-period="31556926" />

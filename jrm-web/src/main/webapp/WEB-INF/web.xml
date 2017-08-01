@@ -41,6 +41,12 @@
         <servlet-name>jrm</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <scripting-invalid>true</scripting-invalid>
+        </jsp-property-group>
+    </jsp-config>
     <!-- <error-page>
         <error-code>404</error-code>
         <error-location>/WEB-INF/views/errors/404.jsp</error-location>

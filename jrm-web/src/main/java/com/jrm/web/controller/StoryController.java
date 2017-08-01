@@ -26,6 +26,7 @@ import com.jrm.core.service.StoryService;
  * @author DucB<br/>
  */
 @Controller
+@RequestMapping(value = "/stories")
 public class StoryController {
     final Logger logger = LoggerFactory.getLogger(StoryController.class);
     @Autowired

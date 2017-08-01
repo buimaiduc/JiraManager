@@ -2,6 +2,7 @@ package com.jrm.core.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * ####################################################<br/>
@@ -17,7 +18,7 @@ import java.io.Serializable;
 public class Project implements Serializable {
     private Long id;
     private String name;
-    private Story story;
+    private Set<Story> stories;
 
     @Id
     @Column(name = "ID")
@@ -31,10 +32,11 @@ public class Project implements Serializable {
         return name;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "STORY_ID")
-    public Story getStory() {
-        return story;
+//    @ManyToOne
+//    @JoinColumn(name = "STORY_ID")
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+    public Set<Story> getStories() {
+        return stories;
     }
 
     public void setName(String name) {
@@ -45,7 +47,7 @@ public class Project implements Serializable {
         this.id = id;
     }
 
-    public void setStory(Story story) {
-        this.story = story;
+    public void setStories(Set<Story> stories) {
+        this.stories = stories;
     }
 }

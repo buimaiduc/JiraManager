@@ -25,36 +25,42 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tag")
 public class Tag implements Serializable {
-	private Long id;
-	private String name;
-	private Set<Story> stories;
-	
-	@Id
-	@Column(name = "ID")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	public Long getId() {
-		return id;
-	}
-	
-	@Column(name = "NAME")
-	public String getName() {
-		return name;
-	}
-	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "tags")
-	public Set<Story> getStories() {
-		return stories;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public void setStories(Set<Story> stories) {
-		this.stories = stories;
-	}
+    private Long id;
+    private String name;
+    private String description;
+    private Set<Story> stories;
+
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getId() {
+        return id;
+    }
+
+    @Column(name = "NAME")
+    public String getName() {
+        return name;
+    }
+
+    @Column(name = "DESCRIPTION")
+    public String getDescription() { return description; }
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "tags")
+    public Set<Story> getStories() {
+        return stories;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) { this.description = description; }
+
+    public void setStories(Set<Story> stories) {
+        this.stories = stories;
+    }
 }

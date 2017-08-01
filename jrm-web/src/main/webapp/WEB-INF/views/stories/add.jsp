@@ -2,10 +2,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="col-md-9 col-md-offset-1">
 	<form action="<c:url value="/posts/ask" />" method="post">
-	  <div class="form-group">
-	    <label for="postTiltle">Summary</label>
-	    <input type="text" name="postTitle" class="form-control" id="postTiltle" placeholder="What's story's summary?">
-	  </div>
+		<div class="form-group">
+			<label for="postTiltle">Story Number</label>
+			<input type="text" name="postTitle" class="form-control" id="postTiltle" placeholder="What's story's number?">
+		</div>
+	  	<div class="form-group">
+	    	<label for="postTiltle">Summary</label>
+	    	<input type="text" name="postTitle" class="form-control" id="postTiltle" placeholder="What's story's summary?">
+	  	</div>
+		<div class="form-group">
+			<label for="postTiltle">Link</label>
+			<input type="text" name="postTitle" class="form-control" id="postTiltle" placeholder="What's story's link?">
+		</div>
 	  
 	  <label for="postTiltle">Description</label>
 	  <textarea id="postBody1" name="postBody" class="form-control" rows="3"></textarea>

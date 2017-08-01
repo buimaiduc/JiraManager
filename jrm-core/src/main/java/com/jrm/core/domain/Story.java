@@ -1,26 +1,10 @@
 package com.jrm.core.domain;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  * ####################################################<br/>
@@ -37,7 +21,7 @@ public class Story implements Serializable {
     private Long id;
     private String summary;
     private String description;
-    private Set<Project> projects;
+    private Project project;
     private Set<Note> notes;
     private Set<Tag> tags;
     private String link;
@@ -64,11 +48,11 @@ public class Story implements Serializable {
         return description;
     }
 
-    @OneToMany(mappedBy = "story", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @ManyToOne
-//    @JoinColumn(name = "STORY_ID")
-    public Set<Project> getProjects() {
-        return projects;
+//    @OneToMany(mappedBy = "story", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToOne
+    @JoinColumn(name = "STORY_ID")
+    public Project getProject() {
+        return project;
     }
 
     @OneToMany(mappedBy = "story", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -126,8 +110,8 @@ public class Story implements Serializable {
         this.description = description;
     }
 
-    public void setProjects(Set<Project> projects) {
-        this.projects = projects;
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     public void setNotes(Set<Note> notes) {
